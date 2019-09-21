@@ -1,0 +1,20 @@
+<form method="post" action="/members/<%=@member.id%>/edit">
+
+  <label for="first_name">First Name:</label>
+  <input id="first_name" type="text" value="<%=@member.first_name%>" name="first_name"/>
+
+  <label for="last_name">Last Name:</label>
+  <input id="last_mame" type="text" value="<%=@member.last_name%>" name="last_name"/>
+
+  <label for="contact_number">Conctact Number:</label>
+  <input id="contact_number" type="text" value="<%=@member.contact_number%>" name="contact_number"/>
+
+  <label for="email">Email:</label>
+  <input id="email" type="text" value="<%=@member.email%>" name="email"/>
+
+  <label for="premiuml">Premium:</label>
+  <input id="premium" type="number" value="<%=@member.premium%>" name="premium"/>
+
+  <input type="submit"/>
+
+</form>

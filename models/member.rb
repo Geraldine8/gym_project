@@ -23,8 +23,12 @@ class Member
     @id = results.first()['id'].to_i
   end
 
+  def full_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
   def delete()
-    sql = "SELECT FROM members WHERE id = $1"
+    sql = "DELETE FROM members WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -35,10 +39,10 @@ class Member
   end
 
   def update()
-    sql = "UPDATE FROM members (first_name, last_name, contact_number, email
-    email, premium) = ($1, $2, $3, $4, $5)
-    WHERE id = $1"
-    values = [@first_name, @last_name, @contact_number, @email, @premium]
+    sql = "UPDATE members SET (first_name, last_name, contact_number, email,
+    premium) = ($1, $2, $3, $4, $5)
+    WHERE id = $6"
+    values = [@first_name, @last_name, @contact_number, @email, @premium, @id]
     SqlRunner.run(sql, values)
 
   end
@@ -53,8 +57,8 @@ class Member
   end
 
   def self.all()
-    sql = "SELECT * FROM members WHERE id = $1"
-    result = SqlRunner.run(sql)
+    sql = "SELECT * FROM members"
+    results = SqlRunner.run(sql)
     return results.map{|member| Member.new(member)}
   end
 
