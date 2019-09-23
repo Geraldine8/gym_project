@@ -5,5 +5,5 @@ require_relative('controllers/gymclass_controller')
 require_relative('controllers/booking_controller')
 
 get '/' do
-  erb( :homepage )
+  erb (:homepage)
 end

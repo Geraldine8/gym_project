@@ -61,7 +61,7 @@ class Booking
     return results.map { |member| Member.new( member ) }
   end
 
-  #Extensions:
+  #Extensions: check class and memberships
 
   def has_spaces_available(gym_class)
     sql = "SELECT COUNT(id) FROM bookings WHERE gym_class_id = $1"
@@ -74,7 +74,7 @@ class Booking
     member = Member.find(@member_id)
     gym_class = GymClass.find(@gym_class_id)
 
-    return 'Class fully booked' if has_spaces_available(gym_class) == false
+    return 'Class fully booked, please select another class!' if has_spaces_available(gym_class) == false
 
     if member.premium == 1
       return 'Premium memberships can only book peak hour classes' if gym_class.is_peak_hour() == false

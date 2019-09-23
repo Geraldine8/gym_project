@@ -1,4 +1,9 @@
-<%= @result %>
+<% if @result %>
+<div class="warning">
+  <%= @result %>
+</div>
+<% end %>
+
 <form action="/bookings/new" method="post">
   <label>
     Select a member:

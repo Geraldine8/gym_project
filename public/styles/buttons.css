@@ -1,39 +1,37 @@
 
 .button {
   border-top: 1px solid #96d1f8;
-  background: #65a9d7;
-  background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+  /* background: #65a9d7; */
+  /* background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-  background: -o-linear-gradient(top, #3e779d, #65a9d7);
-  padding: 11.5px 23px;
-  -webkit-border-radius: 20px;
+  background: -o-linear-gradient(top, #3e779d, #65a9d7); */
+  /* padding: 11.5px 23px; */
+  /* -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
   box-shadow: rgba(0,0,0,1) 0 1px 0;
-  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0; */
   color: white;
   font-size: 18px;
   font-family: Helvetica, Arial, Sans-Serif;
-  /* text-decoration: none; */
-  vertical-align: middle;
-  margin: 125px;
-
+  /* vertical-align: middle; */
+  margin: 25px;
 
 }
-.button:hover {
+/* .button:hover {
   border-top-color: #28597a;
   background: #28597a;
   color: #ccc;
-}
-.button:active {
+} */
+/* .button:active {
   border-top-color: #1b435e;
   background: #1b435e;
-}
+} */
 
-a {
+.button {
    border-top: 1px solid #f2f5f7;
    background: #f0eff7;
    background: -webkit-linear-gradient(top, #f7f9fa, #f0eff7);
@@ -44,18 +42,18 @@ a {
    -webkit-border-radius: 12px;
    -moz-border-radius: 12px;
    border-radius: 12px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   /* -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0; */
    color: #000000;
-   font-size: 9px;
+   font-size: 12px;
    font-family: Helvetica, Arial, Sans-Serif;
    text-decoration: none;
    vertical-align: middle;
    }
 
-a:active {
+/* .button:active {
    border-top-color: #dcebf5;
    background: #dcebf5;
-}
+} */

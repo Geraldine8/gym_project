@@ -1,3 +1,8 @@
+<div class="table-action">
+  <form method="get" action="/members/new">
+    <input type="submit" value="Add"/>
+  </form>
+</div>
 <table class="table" border="1">
   <tr>
     <th>First name</th>
@@ -16,13 +21,9 @@
     <td><%= member.premium() %></td>
     <td>
       <form method="get" action="/members/<%= member.id() %>/edit">
-        <input type="submit" value="Edit member"/>
+        <input type="submit" value="Edit"/>
       </form>
     </td>
   </tr>
   <% end %>
 </table>
-
-<form method="get" action="/members/new">
-  <input type="submit" value="Add member"/>
-</form>
