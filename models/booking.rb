@@ -60,6 +60,7 @@ class Booking
     results = SqlRunner.run( sql, values )
     return results.map { |member| Member.new( member ) }
   end
+
   #Extensions:
 
   def has_spaces_available(gym_class)
@@ -80,7 +81,7 @@ class Booking
 
       save()
     else
-      return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour()
+      return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour() == false
       save()
     end
     return nil

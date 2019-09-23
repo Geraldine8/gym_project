@@ -1,6 +1,3 @@
-<a href="gymclass/new">Add class</a>
-<br>
-<br>
 
 <table border="1">
   <tr>
@@ -10,13 +7,16 @@
     <th>Action</th>
   </tr>
   <% for gym_class in @classes%>
-    <tr>
-      <td><%= gym_class.name() %></td>
-      <td><%= gym_class.capacity() %></td>
-      <td><%= gym_class.timetable() %></td>
-      <td>
-        <a href="/gymclass/<%= gym_class.id()%>/delete">Delete</a>
-      </td>
-    </tr>
+  <tr>
+    <td><%= gym_class.name() %></td>
+    <td><%= gym_class.capacity() %></td>
+    <td><%= gym_class.timetable() %></td>
+    <td>
+      <a href="/gymclass/<%= gym_class.id()%>/delete">Delete</a>
+    </td>
+  </tr>
   <% end %>
 </table>
+<br>
+<br>
+<a href="gymclass/new">Add class</a>

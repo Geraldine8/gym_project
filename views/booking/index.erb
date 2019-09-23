@@ -1,4 +1,6 @@
-<a href="/bookings/new">Book class</a>
+
+<div class="bookings">
+
 
 <form class="" action="/bookings" method="post">
   <label>
@@ -10,19 +12,23 @@
     </select>
   </label>
   <button type="submit" name="button">View Members</button>
+  <a href="/bookings/new">Book class</a>
 </form>
+
+<br>
+<br>
 
 <% if @members != nil && @members.count > 0 %>
   <table border="1">
     <tr>
       <th>Name</th>
-      <th>Email</th>
     </tr>
     <% for member in @members%>
     <tr>
       <td><%= member.full_name() %></td>
-      <td><%= member.email() %></td>
     </tr>
     <% end %>
   </table>
 <% end %>
+
+</div>

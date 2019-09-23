@@ -1,0 +1,46 @@
+<% for member in @members %>
+<div class="wrapper">
+  <p>First Name: <%= member.first_name() %> </p>
+  <p>Last Name: <%= member.last_name() %></p>
+  <p>Contact Number: <%= member.contact_number() %></p>
+  <p>Email: <%= member.email() %></p>
+  <p>Premium <%= member.premium()%></p>
+
+  <form method="get" action="/members/<%= member.id() %>/edit">
+    <input type="submit" value="Update member"/>
+  </form>
+</div>
+
+
+
+<hr>
+
+<% end %>
+
+
+<form method="get" action="/members/new">
+  <input type="submit" value="Add member"/>
+</form>
+==============================================================================
+View for members
+
+<% for member in @members %>
+<div class="wrapper">
+  <p>First Name: <%= member.first_name() %> </p>
+  <p>Last Name: <%= member.last_name() %></p>
+  <p>Contact Number: <%= member.contact_number() %></p>
+  <p>Email: <%= member.email() %></p>
+  <p>Premium <%= member.premium()%></p>
+
+  <form method="get" action="/members/<%= member.id() %>/edit">
+    <input type="submit" value="Update member"/>
+  </form>
+</div>
+
+<hr>
+
+<% end %>
+
+<form method="get" action="/members/new">
+  <input type="submit" value="Add member"/>
+</form>
