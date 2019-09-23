@@ -1,4 +1,6 @@
+require 'time'
 require_relative('../db/sql_runner')
+
 
 class GymClass
 
@@ -21,7 +23,7 @@ class GymClass
   end
 
   def delete()
-    sql = "SELECT FROM gym_classes WHERE id = $1"
+    sql = "DELETE FROM gym_classes WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -34,6 +36,27 @@ class GymClass
     SqlRunner.run(sql, values)
   end
 
+  def is_peak_hour()
+    class_time = Time.parse(@timetable)
+    return  class_time.hour.between?(7, 9) || class_time.hour.between?(15, 18)
+  end
+
+  #Format time:
+  #%I:Hour of the day, 12-hour clock, zero-padded (01..12)
+  #%M Minute of the hour (00..59)
+  #%p Meridian indicator, uppercase (``AM'' or ``PM'')
+
+  def name_and_time()
+    time = Time.parse(@timetable)
+    return "#{@name} - #{time.strftime("%I:%M%p")}"
+  end
+
+  def self.all()
+    sql = "SELECT * FROM gym_classes"
+    results = SqlRunner.run(sql)
+    return results.map{|gym_class| GymClass.new(gym_class)}
+  end
+
 
   def self.delete_all()
     sql = "DELETE FROM gym_classes"
@@ -43,8 +66,10 @@ class GymClass
   def self.find(id)
     sql = "SELECT * FROM gym_classes WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql)
+    result = SqlRunner.run(sql, values)
     return GymClass.new(result.first)
   end
+
+
 
 end

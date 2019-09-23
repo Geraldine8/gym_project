@@ -15,7 +15,7 @@ CREATE TABLE gym_classes(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
   capacity INT8,
-  timetable VARCHAR(255)
+  timetable TIME
 );
 
 CREATE TABLE bookings (

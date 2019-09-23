@@ -19,6 +19,10 @@ class Booking
     @id = results.first()['id'].to_i
   end
 
+  def view_member_attending_to_class()
+    sql = "SELECT m.* FROM m INNER JOIN "
+  end
+
   def delete()
     sql = "SELECT FROM bookings WHERE id = $1"
     values = [@id]
@@ -35,7 +39,7 @@ class Booking
     WHERE id = $1"
     values = [@member_id]
     results = SqlRunner.run( sql, values )
-    return Victim.new( results.first )
+    return Member.new( results.first )
   end
 
   def gym_class()
@@ -43,9 +47,42 @@ class Booking
     WHERE id = $1"
     values = [@gym_class_id]
     results = SqlRunner.run( sql, values )
-    return Zombie.new( results.first )
+    return GymClass.new( results.first )
   end
 
+  def self.member_by_class_id(gym_class_id)
+    sql = "
+      SELECT m.*
+      FROM members m
+      INNER JOIN bookings b ON m.id = b.member_id
+      WHERE b.gym_class_id = $1"
+    values = [gym_class_id]
+    results = SqlRunner.run( sql, values )
+    return results.map { |member| Member.new( member ) }
+  end
+  #Extensions:
 
+  def has_spaces_available(gym_class)
+    sql = "SELECT COUNT(id) FROM bookings WHERE gym_class_id = $1"
+    values = [@gym_class_id]
+    result = SqlRunner.run(sql, values).first
+    return result['count'].to_i < gym_class.capacity
+  end
 
+  def create_booking()
+    member = Member.find(@member_id)
+    gym_class = GymClass.find(@gym_class_id)
+
+    return 'Class fully booked' if has_spaces_available(gym_class) == false
+
+    if member.premium == 1
+      return 'Premium memberships can only book peak hour classes' if gym_class.is_peak_hour() == false
+
+      save()
+    else
+      return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour()
+      save()
+    end
+    return nil
+  end
 end

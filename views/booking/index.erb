@@ -1,0 +1,28 @@
+<a href="/bookings/new">Book class</a>
+
+<form class="" action="/bookings" method="post">
+  <label>
+    Select a class:
+    <select name="gym_class_id">
+      <% for gym_class in @classes %>
+      <option value="<%= gym_class.id %>"><%= gym_class.name_and_time %></option>
+      <% end %>
+    </select>
+  </label>
+  <button type="submit" name="button">View Members</button>
+</form>
+
+<% if @members != nil && @members.count > 0 %>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <% for member in @members%>
+    <tr>
+      <td><%= member.full_name() %></td>
+      <td><%= member.email() %></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
