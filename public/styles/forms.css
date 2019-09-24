@@ -37,6 +37,7 @@ label {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin-top: 10px;
 }
 
 .submit-button:hover {
@@ -45,7 +46,7 @@ label {
 
 .container {
   border-radius: 5px;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc7a;
   padding: 20px;
 }
 

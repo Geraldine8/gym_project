@@ -14,6 +14,9 @@ end
 post '/bookings' do
   @members = Booking.member_by_class_id(params[:gym_class_id])
   @classes = GymClass.all()
+
+  #Guardando el id de la clase  que se selecciono - Ver index ternary
+  @gym_class_id = params[:gym_class_id].to_i
   erb(:"booking/index")
 end
 

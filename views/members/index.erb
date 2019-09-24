@@ -16,13 +16,13 @@
     <td><%= member.last_name() %></td>
     <td><%= member.contact_number() %></td>
     <td><%= member.email() %></td>
-    <td><%= member.premium() %></td>
-    <!-- <td>
-      <span class="<%= member.premium() == 1 ? 'premium' : 'no-premium' %>"></span>
-    </td> -->
+    <!-- <td><%= member.premium() %></td> -->
+    <td>
+      <%= member.premium() == 1 ? '✔️' : '✖️' %>
+    </td>
     <td>
       <form method="get" action="/members/<%= member.id() %>/edit">
-        <input type="submit" value="Edit"/>
+        <a class="button-xs" href="/members/<%= member.id()%>/delete">Delete</a>
       </form>
     </td>
   </tr>
