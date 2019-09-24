@@ -7,7 +7,7 @@
     Select a class:
     <select name="gym_class_id">
       <% for gym_class in @classes %>
-      <option value="<%= gym_class.id %>"><%= gym_class.name_and_time %></option>
+      <option value="<%= gym_class.id %>" selected><%= gym_class.name_and_time %></option>
       <% end %>
     </select>
   </label>

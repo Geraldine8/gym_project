@@ -1,7 +1,5 @@
 <div class="table-action">
-  <form method="get" action="/members/new">
-    <input type="submit" value="Add"/>
-  </form>
+  <a class="button" href="/members/new">Add Member</a>
 </div>
 <table class="table" border="1">
   <tr>
@@ -19,6 +17,9 @@
     <td><%= member.contact_number() %></td>
     <td><%= member.email() %></td>
     <td><%= member.premium() %></td>
+    <!-- <td>
+      <span class="<%= member.premium() == 1 ? 'premium' : 'no-premium' %>"></span>
+    </td> -->
     <td>
       <form method="get" action="/members/<%= member.id() %>/edit">
         <input type="submit" value="Edit"/>

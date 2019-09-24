@@ -44,3 +44,46 @@ View for members
 <form method="get" action="/members/new">
   <input type="submit" value="Add member"/>
 </form>
+
+=============================================================================
+Form to edit member
+
+<form class=""method="post" action="/members/<%=@member.id%>/edit">
+
+  <label for="first_name">First Name:</label>
+  <input id="first_name" type="text" value="<%=@member.first_name%>" name="first_name"/>
+
+  <label for="last_name">Last Name:</label>
+  <input id="last_mame" type="text" value="<%=@member.last_name%>" name="last_name"/>
+
+  <label for="contact_number">Conctact Number:</label>
+  <input id="contact_number" type="text" value="<%=@member.contact_number%>" name="contact_number"/>
+
+  <label for="email">Email:</label>
+  <input id="email" type="text" value="<%=@member.email%>" name="email"/>
+
+  <label for="premiuml">Premium:</label>
+  <input id="premium" type="number" value="<%=@member.premium%>" name="premium"/>
+
+  <input type="submit"/>
+
+</form>
+
+
+==========================================================================
+new class old form
+
+<!-- <form method="post" action="/gymclass">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name"/>
+
+  <label for="capacity">Capacity:</label>
+  <input id="capacity" type="text" name="capacity"/>
+
+  <label for="timetable">Timetable:</label>
+  <input id="timetable" type="text" name="timetable"/>
+
+  <input type="submit"/>
+
+</form> -->

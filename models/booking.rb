@@ -61,24 +61,38 @@ class Booking
     return results.map { |member| Member.new( member ) }
   end
 
-  #Extensions: check class and memberships
+  #Extensions: check class capaciity and memberships
 
   def has_spaces_available(gym_class)
     sql = "SELECT COUNT(id) FROM bookings WHERE gym_class_id = $1"
     values = [@gym_class_id]
     result = SqlRunner.run(sql, values).first
     return result['count'].to_i < gym_class.capacity
+    # if result['count'].to_i < gym_class.capacity
+    #   return true
+    # else
+    #   return false
+    # end
+  end
+
+  #check duplication in class
+
+  def has_member_booking_class()
+    sql = "SELECT COUNT(*)FROM bookings WHERE member_id = $1 AND gym_class_id = $2"
+    values = [@member_id, @gym_class_id]
+    result = SqlRunner.run(sql, values).first
+    return result['count'].to_i >= 1
   end
 
   def create_booking()
     member = Member.find(@member_id)
     gym_class = GymClass.find(@gym_class_id)
 
+    return 'You cannot book same class twice' if has_member_booking_class() == true
     return 'Class fully booked, please select another class!' if has_spaces_available(gym_class) == false
 
     if member.premium == 1
       return 'Premium memberships can only book peak hour classes' if gym_class.is_peak_hour() == false
-
       save()
     else
       return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour() == false

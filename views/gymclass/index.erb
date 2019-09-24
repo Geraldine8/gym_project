@@ -1,5 +1,5 @@
 <div class="table-action">
-  <a class="button" href="gymclass/new">Add</a>
+  <a class="button" href="gymclass/new">Add class</a>
 </div>
 <table border="1">
   <tr>
@@ -14,7 +14,7 @@
     <td><%= gym_class.capacity() %></td>
     <td><%= gym_class.timetable() %></td>
     <td>
-      <a class="button" href="/gymclass/<%= gym_class.id()%>/delete">Delete</a>
+      <a class="button-xs" href="/gymclass/<%= gym_class.id()%>/delete">Delete</a>
     </td>
   </tr>
   <% end %>

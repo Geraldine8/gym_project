@@ -7,13 +7,7 @@ require_relative('../models/booking')
 
 #INDEX
 get '/bookings' do
-  # p 'Recibe request'
-  # sleep(10)
-  # p 'Busco classes in database'
   @classes = GymClass.all()
-  # sleep(10)
-  # p 'Render view'
-  # sleep(10)
   erb(:"booking/index")
 end
 

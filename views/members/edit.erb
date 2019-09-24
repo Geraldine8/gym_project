@@ -1,20 +1,49 @@
-<form method="post" action="/members/<%=@member.id%>/edit">
+<div class="container">
+  <form method="post" action="/members/<%=@member.id%>/edit">
+    <div class="row">
+      <div class="col-25">
+        <label for="first_name">First Name:</label>
+      </div>
+      <div class="col-75">
+        <input id="first_name" type="text" value="<%=@member.first_name%>" name="first_name"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="last_name">Last Name:</label>
+      </div>
+      <div class="col-75">
+        <input id="last_mame" type="text" value="<%=@member.last_name%>" name="last_name"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="contact_number">Conctact Number:</label>
+      </div>
+      <div class="col-75">
+        <input id="contact_number" type="text" value="<%=@member.contact_number%>" name="contact_number"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email:</label>
+      </div>
+      <div class="col-75">
+        <input id="email" type="text" value="<%=@member.email%>" name="email"/>
+      </div>
+    </div>
 
-  <label for="first_name">First Name:</label>
-  <input id="first_name" type="text" value="<%=@member.first_name%>" name="first_name"/>
+    <label class="container">Premium
+      <input type="radio" <%= @member.premium == 1 ? 'checked="checked"' : ""%> value="1" name="premium">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">No premium
+      <input type="radio" <%= @member.premium == 0 ? 'checked="checked"' : ""%> value="0" name="premium">
+      <span class="checkmark"></span>
+    </label>
 
-  <label for="last_name">Last Name:</label>
-  <input id="last_mame" type="text" value="<%=@member.last_name%>" name="last_name"/>
-
-  <label for="contact_number">Conctact Number:</label>
-  <input id="contact_number" type="text" value="<%=@member.contact_number%>" name="contact_number"/>
-
-  <label for="email">Email:</label>
-  <input id="email" type="text" value="<%=@member.email%>" name="email"/>
-
-  <label for="premiuml">Premium:</label>
-  <input id="premium" type="number" value="<%=@member.premium%>" name="premium"/>
-
-  <input type="submit"/>
-
-</form>
+    <div class="row">
+      <input class="submit-button" type="submit" value="Save">
+    </div>
+  </form>
+</div>
