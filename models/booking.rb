@@ -75,7 +75,7 @@ class Booking
     # end
   end
 
-  #check duplication in class
+  #check duplicity in class
 
   def has_member_booking_class()
     sql = "SELECT COUNT(*)FROM bookings WHERE member_id = $1 AND gym_class_id = $2"
@@ -93,11 +93,10 @@ class Booking
 
     if member.premium == 1
       return 'Premium memberships can only book classes during peak hours ' if gym_class.is_peak_hour() == false
-      save()
     else
-      return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour() == false
-      save()
+      return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour() == true
     end
+
     return nil
   end
 end

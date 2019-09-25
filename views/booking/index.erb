@@ -1,20 +1,29 @@
 
 <div class="bookings">
+<a class="button" href="/bookings/new">Book class</a>
+<br><br><br>
+
 <form class="" action="/bookings" method="post">
   <label>
     Select a class:
+    <br>
+    <br>
     <select name="gym_class_id">
       <% for gym_class in @classes %>
-      <option  value="<%= gym_class.id %>" <%= gym_class.id == @gym_class_id ? 'selected' : '' %> ><%= gym_class.name_and_time %></option>
+      <option  value="<%= gym_class.id %>"
+        
+         <%= gym_class.id == @gym_class_id ? 'selected' : '' %> >
+         <%= gym_class.name_and_time %>
+      </option>
       <% end %>
     </select>
   </label>
   <button type="submit" name="button">View Members</button>
-  <a class="button" href="/bookings/new">Book class</a>
+
 </form>
 
-<br>
-<br>
+
+<!-- #=============================================================================== -->
 
 <% if @members != nil && @members.count > 0 %>
   <table border="1">

@@ -32,6 +32,10 @@ post '/bookings/new' do
   @result =  booking.create_booking()
   redirect to ("/bookings") if @result === nil
 
+# Para mantener el ultimo miembro que se selecciono para hacer el book de una clase
+  @gym_class_id = params[:gym_class_id].to_i
+  @member_id = params[:member_id].to_i
+
   @members = Member.all()
   @classes = GymClass.all()
   erb(:"booking/new")
