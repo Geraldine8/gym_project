@@ -93,10 +93,11 @@ class Booking
 
     if member.premium == 1
       return 'Premium memberships can only book classes during peak hours ' if gym_class.is_peak_hour() == false
+      save()
     else
       return 'Non-premium memberships cannot book classes during peak hours' if gym_class.is_peak_hour() == true
+      save()
     end
-
     return nil
   end
 end
